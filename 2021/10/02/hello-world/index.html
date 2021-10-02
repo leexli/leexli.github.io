@@ -46,8 +46,6 @@
     <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
   
   
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
-  
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -286,6 +284,13 @@
 
         
 
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2021/10/02/hello-world/" class="leancloud_visitors"  data-flag-title="Hello World">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/02/hello-world/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
@@ -347,7 +352,7 @@
     
   <section id="comments">
   	
-           
+      <div id="vcomments"></div>
     
   </section>
 
@@ -478,23 +483,29 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
-  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
   <script type="text/javascript">
-  var gitalk = new Gitalk({
-    clientID: 'fad7bfdaa72eb0b1ab6d',
-    clientSecret: '56db82399ec2a53a0926c8a98ec016b1b8a6f29b',
-    repo: 'https://github.com/leexli/blog-comment.git',
-    owner: 'leexli',
-    admin: ['leexli'],
-    id: md5(location.pathname),
-    distractionFreeMode: true
-  })
-  gitalk.render('comments')
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: true,
+    appId: 'KoVpmnSd1FceicHIFYljGRmM-gzGzoHsz',
+    appKey: '8keWVd6wlOt6X9kgS4e2OW2V',
+    placeholder: '说点什么...',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
   </script>
 
-      
+     
 
 
 
